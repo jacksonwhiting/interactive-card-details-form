@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+   .input-width {
+      width: calc(100% - 4px);
+   }
+
+   input:focus + div {
+      @apply bg-gradient-sec;
+   }
+
+   input[type=number] {
+      -moz-appearance: textfield;
+   }
+
+   input::-webkit-outer-spin-button,
+   input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+   }
+
+   .blur-err-msg:invalid ~ p {
+      display: block;
+   }
+
+   .show-err-msg {
+      display: block;
+   }
+}
