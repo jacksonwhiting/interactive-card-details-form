@@ -30,10 +30,18 @@
 				<div class="lg:flex lg:justify-center lg:gap-24 lg:items-center">
 					<div
 						class="mx-auto max-w-[27rem] px-4 pt-10 lg:pt-0 drop-shadow-[0_35px_60px_rgba(0,0,0,0.20)] lg:max-w-none lg:w-[34rem] lg:flex lg:flex-col-reverse lg:gap-8">
-						<img
-							class="max-w-[84%] lg:max-w-[28rem] ml-auto"
-							src="./images/bg-card-back.png"
-							alt="back of credit card" />
+						<div class="relative">
+							<img
+								class="max-w-[84%] lg:max-w-[28rem] ml-auto"
+								src="./images/bg-card-back.png"
+								alt="back of credit card" />
+							<p
+								id="display-cvc"
+								data-target="card-cvc"
+								class="js-card-data absolute top-[5.2rem] lg:top-28 right-12 uppercase text-[0.6rem] lg:text-bodyL tracking-[1.29px]">
+								000
+							</p>
+						</div>
 						<div class="relative mx-auto lg:mx-0">
 							<div class="absolute lg:static -top-[4.6rem]">
 								<div>
@@ -49,18 +57,33 @@
 										src="./images/card-logo.svg"
 										alt="credit card logo" />
 									<p
-										class="text-[1.125rem] uppercase lg:text-hdgXl tracking-[.14rem] mt-[15%]">
-										9591 6489 6389 101E
+										id="display-card-number"
+										data-target="card-number"
+										class="js-card-data text-[1.125rem] uppercase lg:text-hdgXl tracking-[.14rem] mt-[15%]">
+										0000 0000 0000 0000
 									</p>
-									<div class="flex justify-between mt-[5%]">
+									<div
+										class="flex justify-between items-center mt-[5%]">
 										<p
-											class="uppercase text-[0.6rem] lg:text-bodyL tracking-[1.29px]">
+											id="display-card-name"
+											data-target="cardholder-name"
+											class="js-card-data uppercase text-[0.6rem] lg:text-bodyL tracking-[1.29px]">
 											JANE APPLESEED
 										</p>
-										<p
-											class="uppercase text-[0.6rem] lg:text-bodyL tracking-[1.29px]">
-											00/00
-										</p>
+										<div>
+											<span
+												id="display-card-month"
+												data-target="card-month"
+												class="js-card-data uppercase text-[0.6rem] lg:text-bodyL tracking-[1.29px]">
+												00 /
+											</span>
+											<span
+												id="display-card-year"
+												data-target="card-year"
+												class="js-card-data uppercase text-[0.6rem] lg:text-bodyL tracking-[1.29px]">
+												00
+											</span>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -107,10 +130,11 @@
 								<div class="relative">
 									<input
 										class="peer input-width mt-[2px] ml-[2px] border-[1.5px] border-pri-light py-4 px-6 rounded-lg text-hdgL text-primary placeholder:text-hdgL placeholder:text-pri-light placeholder:font-medium focus:ring-transparent focus:border-transparent"
-										type="number"
+										type="text"
 										id="card-number"
 										name="cardNumber"
 										placeholder="e.g. 1234 5678 9123 0000"
+										maxlength="19"
 										required />
 									<div
 										class="absolute -z-10 inset-0 w-full h-[62px] rounded-lg"></div>
@@ -133,10 +157,13 @@
 									<div class="relative">
 										<input
 											class="peer input-width mt-[2px] ml-[2px] border-[1.5px] border-pri-light py-4 px-6 rounded-lg text-hdgL text-primary placeholder:text-hdgL placeholder:text-pri-light placeholder:font-medium focus:ring-transparent focus:border-transparent"
-											type="number"
+											type="text"
+											inputmode="numeric"
 											id="card-month"
 											name="cardMonth"
 											placeholder="MM"
+											maxlength="2"
+											pattern="[0-9]*"
 											required />
 										<div
 											class="absolute -z-10 inset-0 w-full h-[62px] rounded-lg"></div>
@@ -157,18 +184,17 @@
 											onfocus="renderMonthErrMsg()"
 											oninput="renderMonthErrMsg()"
 											class="peer input-width mt-[2px] ml-[2px] border-[1.5px] border-pri-light py-4 px-6 rounded-lg text-hdgL text-primary placeholder:text-hdgL placeholder:text-pri-light placeholder:font-medium focus:ring-transparent focus:border-transparent"
-											type="number"
+											type="text"
+											inputmode="numeric"
 											id="card-year"
 											name="cardYear"
 											placeholder="YY"
+											maxlength="2"
+											pattern="[0-9]*"
+											max="2"
 											required />
 										<div
 											class="absolute -z-10 inset-0 w-full h-[62px] rounded-lg"></div>
-										<!-- <p
-											id="date-err-msg"
-											class="hidden ml-2 peer-invalid:peer-focus:block mt-2 text-error text-bodyS col-start-1 col-end-3">
-											Can't be blank
-										</p> -->
 									</div>
 								</div>
 							</div>
@@ -243,7 +269,7 @@
 						<button
 							id="thank-you-btn"
 							class="py-4 mt-9 bg-primary rounded-md text-center w-full text-hdgL font-semibold">
-							Confirm
+							Continue
 						</button>
 					</section>
 				</div>
