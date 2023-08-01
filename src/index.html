@@ -135,12 +135,14 @@
 										name="cardNumber"
 										placeholder="e.g. 1234 5678 9123 0000"
 										maxlength="19"
+										minlength="16"
+										pattern="[\d*]{4}\s[\d*]{4}\s[\d*]{4}\s[\d]{4}"
 										required />
 									<div
 										class="absolute -z-10 inset-0 w-full h-[62px] rounded-lg"></div>
 									<p
 										class="hidden peer-invalid:peer-focus:block mt-2 text-error text-bodyS">
-										Wrong format, numbers only
+										Wrong format, must be a 16 digit number
 									</p>
 								</div>
 							</div>
