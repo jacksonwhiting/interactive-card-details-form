@@ -170,7 +170,7 @@
 										<p
 											id="month-err-msg"
 											class="hidden ml-2 peer-invalid:peer-focus:block mt-2 text-error text-bodyS col-start-1 col-end-3 whitespace-nowrap">
-											Can't be blank
+											Can't be blank, must be a number
 										</p>
 									</div>
 								</div>
@@ -208,16 +208,18 @@
 									<div class="relative">
 										<input
 											class="peer input-width mt-[2px] ml-[2px] border-[1.5px] border-pri-light py-4 px-6 rounded-lg text-hdgL text-primary placeholder:text-hdgL placeholder:text-pri-light placeholder:font-medium focus:ring-transparent focus:border-transparent"
-											type="number"
+											type="text"
 											id="card-cvc"
 											name="cardCvc"
+											maxlength="3"
+											pattern="[0-9]*"
 											placeholder="e.g. 123"
 											required />
 										<div
 											class="absolute -z-10 inset-0 w-full h-[62px] rounded-lg"></div>
 										<p
 											class="hidden ml-2 peer-invalid:peer-focus:block mt-2 text-error text-bodyS">
-											Can't be blank
+											Can't be blank, must be a number
 										</p>
 									</div>
 								</div>
